@@ -6,6 +6,9 @@
       "components": [
         "./components"
       ],
+      "pages": [
+        "./pages"
+      ],
     },
     "target": "es2020",
     "lib": [
