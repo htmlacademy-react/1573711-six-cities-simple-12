@@ -64,18 +64,19 @@ export const offersReducer = createReducer(
         if (actions.payload) {
           state.sorting = actions.payload;
 
-          state.offers.sort((a, b) => {
-            switch (state.sorting) {
-              case sorting.high:
-                return b.price - a.price;
-              case sorting.low:
-                return a.price - b.price;
-              case sorting.top:
-                return b.rating - a.rating;
-              default:
-                return 0;
-            }
-          });
+          switch (state.sorting) {
+            case sorting.high:
+              state.offers.sort((a, b) => b.price - a.price);
+              break;
+            case sorting.low:
+              state.offers.sort((a, b) => a.price - b.price);
+              break;
+            case sorting.top:
+              state.offers.sort((a, b) => b.rating - a.rating);
+              break;
+            default:
+              state.offers = state.OFFERS.filter((offer) => offer.city.name === state.city.name);
+          }
         }
       })
       .addCase(loadOffer, (state, actions) => {

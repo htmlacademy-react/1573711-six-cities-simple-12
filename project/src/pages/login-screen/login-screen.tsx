@@ -1,7 +1,7 @@
 import { AppRoute } from 'const';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { FormEvent, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginAction } from 'store/user';
 
 export default function LoginScreen() {
@@ -44,9 +44,9 @@ export default function LoginScreen() {
         </section>
         <section className="locations locations--login locations--current">
           <div className="locations__item">
-            <a className="locations__item-link" href="/#">
+            <Link to={AppRoute.Main} className="locations__item-link" style={{ cursor: 'pointer' }}>
               <span>{cityName}</span>
-            </a>
+            </Link>
           </div>
         </section>
       </div>

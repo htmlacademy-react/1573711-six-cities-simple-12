@@ -22,9 +22,9 @@ export default function LoggedNav() {
           </div>
         </li>
         <li className="header__nav-item">
-          <a className="header__nav-link" href="/#" onClick={handleLogout}>
+          <div className="header__nav-link" style={{ cursor: 'pointer' }} onClick={handleLogout}>
             <span className="header__signout">Sign out</span>
-          </a>
+          </div>
         </li>
       </ul>
     </nav>

@@ -16,8 +16,8 @@ export default function City({ cityName }: Props) {
   };
 
   return (
-    <a className={classNames('locations__item-link', 'tabs__item', { 'tabs__item--active': cityName.name === currentCity })} href="/#" onClick={handleCityChange}>
+    <div className={classNames('locations__item-link', 'tabs__item', { 'tabs__item--active': cityName.name === currentCity })} onClick={handleCityChange} style={{ cursor: 'pointer' }}>
       <span>{cityName.name}</span>
-    </a>
+    </div>
   );
 }

@@ -14,6 +14,7 @@ export default function OfferItem({ offerData, nearbyOffers, offerComments }: Pr
   const { id, price, rating, type, isPremium, images, goods, title, maxAdults, bedrooms, description, host: { avatarUrl, isPro, name } } = offerData;
 
   const authStatus = useAppSelector((state) => state.user.authorizationStatus);
+  const nearby = useAppSelector((state) => state.offers.nearbyOffers);
 
   const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
   const onOfferHover = (offerId: number | null) => {
@@ -102,7 +103,7 @@ export default function OfferItem({ offerData, nearbyOffers, offerComments }: Pr
             </section>
           </div>
         </div>
-        <Map selectedOffer={selectedOffer} className='property__map map' />
+        <Map selectedOffer={selectedOffer} offersList={nearby} activeOffer={offerData} className='property__map map' />
       </section>
       <div className="container">
         <section className="near-places places">

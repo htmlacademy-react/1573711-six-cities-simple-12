@@ -8,6 +8,7 @@ export default function CitiesHomeScreen() {
   const [selectedOffer, setSelectedOffer] = useState<Offer | undefined>(undefined);
   const dispatch = useAppDispatch();
   const offers = useAppSelector((state) => state.offers.offers);
+  // const nearby = useAppSelector((state) => state.offers.nearbyOffers);
 
   useEffect(() => {
     dispatch(fetchOffersAction());
@@ -40,7 +41,7 @@ export default function CitiesHomeScreen() {
             </div>
           </section>
           <div className="cities__right-section">
-            <Map selectedOffer={selectedOffer} className='cities__map map' />
+            <Map selectedOffer={selectedOffer} offersList={offers} activeOffer={null} className='cities__map map' />
           </div>
         </div>
       </div>
